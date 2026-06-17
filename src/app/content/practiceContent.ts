@@ -51,6 +51,33 @@ export const siteContent = {
     ],
     cta: "Prendre rendez-vous",
   },
+  contact: {
+    heading: "Contact & accès",
+    intro:
+      "Prenez rendez-vous ou posez vos questions. Le cabinet vous répond par téléphone ou WhatsApp.",
+    address: ["42 Rue Didouche Mourad", "Sidi Yahia, Alger 16000"],
+    phoneLabel: "Prendre rendez-vous",
+    phone: "+213 21 48 12 00",
+    hours: ["Dim - Jeu : 08:30 - 17:30", "Sam : 09:00 - 13:00"],
+    mapEmbedUrl:
+      "https://www.google.com/maps?q=42+Rue+Didouche+Mourad,+Sidi+Yahia,+Alger+16000&z=15&output=embed",
+    paymentCards: [
+      {
+        title: "CNAS / CASNOS acceptés",
+        body: "Prise en charge selon votre dossier. Apportez votre carte et vos justificatifs le jour du rendez-vous.",
+      },
+      {
+        title: "Paiement & orientation",
+        body: "Les modalités de règlement et de remboursement sont précisées lors de la prise de rendez-vous.",
+      },
+    ],
+  },
+  footerLinks: [
+    { href: "#services", label: "Soins" },
+    { href: "#testimonials", label: "Avis" },
+    { href: "#doctor", label: "Praticien" },
+    { href: "#contact", label: "Contact" },
+  ],
   services: [
     {
       title: "Blanchiment",
