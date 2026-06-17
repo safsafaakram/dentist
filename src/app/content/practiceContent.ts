@@ -72,6 +72,26 @@ export const siteContent = {
       },
     ],
   },
+  gallery: [
+    {
+      title: "Blanchiment dentaire",
+      beforeAlt: "Avant blanchiment dentaire",
+      afterAlt: "Après blanchiment dentaire",
+      caption: "Éclaircissement professionnel réalisé au cabinet.",
+    },
+    {
+      title: "Détartrage",
+      beforeAlt: "Avant détartrage",
+      afterAlt: "Après détartrage",
+      caption: "Assainissement visible des surfaces dentaires et gingivales.",
+    },
+    {
+      title: "Orthodontie",
+      beforeAlt: "Avant orthodontie",
+      afterAlt: "Après orthodontie",
+      caption: "Amélioration progressive de l'alignement et du sourire.",
+    },
+  ],
   footerLinks: [
     { href: "#services", label: "Soins" },
     { href: "#testimonials", label: "Avis" },
