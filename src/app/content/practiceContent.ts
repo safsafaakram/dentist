@@ -19,6 +19,38 @@ export const siteContent = {
     tagline:
       "Soins attentifs, précision clinique et accompagnement rassurant à Alger.",
   },
+  testimonials: [
+    {
+      name: "Nadia B.",
+      rating: 5,
+      quote:
+        "Cabinet très rassurant, équipe douce et organisée. Mon blanchiment s'est très bien passé.",
+    },
+    {
+      name: "Yacine K.",
+      rating: 5,
+      quote:
+        "J'ai été pris en charge rapidement pour une douleur dentaire. Explications claires et soin précis.",
+    },
+    {
+      name: "Samira M.",
+      rating: 5,
+      quote:
+        "Le suivi orthodontique est sérieux et l'accueil met vraiment en confiance dès la première visite.",
+    },
+  ],
+  doctor: {
+    name: "Dr. Karim Yelles",
+    role: "Chirurgien-dentiste",
+    bio:
+      "Le Dr. Karim Yelles accompagne ses patients avec une approche calme, pédagogique et précise, en privilégiant des soins confortables et durables.",
+    credentials: [
+      "15+ ans d'expérience clinique",
+      "Formation continue en dentisterie restauratrice et esthétique",
+      "Prise en charge des implants, de l'orthodontie et des soins conservateurs",
+    ],
+    cta: "Prendre rendez-vous",
+  },
   services: [
     {
       title: "Blanchiment",
