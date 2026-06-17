@@ -40,14 +40,15 @@ export const siteContent = {
     },
   ],
   doctor: {
-    name: "Dr. Karim Yelles",
+    name: "Dr. TAHRAT Khellaf",
     role: "Chirurgien-dentiste",
     bio:
-      "Le Dr. Karim Yelles accompagne ses patients avec une approche calme, pédagogique et précise, en privilégiant des soins confortables et durables.",
+      "Le Dr. TAHRAT Khellaf accompagne ses patients avec une approche calme, pédagogique et précise, en privilégiant des soins confortables et durables.",
     credentials: [
-      "15+ ans d'expérience clinique",
-      "Formation continue en dentisterie restauratrice et esthétique",
-      "Prise en charge des implants, de l'orthodontie et des soins conservateurs",
+      "Implantologie",
+      "Orthodontie",
+      "Parodontologie",
+      "Prothèse Dentaire",
     ],
     cta: "Prendre rendez-vous",
   },
