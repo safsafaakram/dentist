@@ -3,7 +3,7 @@ import { siteContent } from "@/app/content/practiceContent";
 function StarRating({ rating }: { rating: number }) {
   return (
     <div aria-label={`${rating} sur 5 étoiles`} className="flex gap-1 text-[var(--site-primary)]">
-      {Array.from({ length: 5 }).map((_, index) => (
+      {Array.from({ length: rating }).map((_, index) => (
         <span key={index} aria-hidden="true">
           ★
         </span>
