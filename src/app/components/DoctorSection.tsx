@@ -32,8 +32,8 @@ export function DoctorSection() {
           <h2
             className="text-[var(--site-text)] uppercase text-center lg:text-left"
             style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 600,
+              fontFamily: "'Ubuntu', sans-serif",
+              fontWeight: 500,
               fontSize: "24px",
               letterSpacing: "0.6px",
             }}

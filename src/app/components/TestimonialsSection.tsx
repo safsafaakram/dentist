@@ -19,7 +19,7 @@ export function TestimonialsSection() {
         <h2
           className="text-[var(--site-text)] uppercase"
           style={{
-            fontFamily: "'Montserrat', sans-serif",
+            fontFamily: "'Ubuntu', sans-serif",
             fontWeight: 700,
             fontSize: "40px",
             letterSpacing: "-0.8px",

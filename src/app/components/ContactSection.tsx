@@ -6,7 +6,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="relative overflow-hidden bg-[var(--site-surface)]">
       <div className="w-full h-16 pointer-events-none overflow-hidden">
-        <img src={imgDivWave} alt="" className="w-full h-full object-cover object-bottom" />
+        <img src={imgDivWave} alt="" className="w-full h-full object-cover object-bottom scale-x-[-1] scale-y-[-1]" />
       </div>
 
       <div className="px-8 pb-16 max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-10">
@@ -14,7 +14,7 @@ export function ContactSection() {
           <h2
             className="text-[var(--site-text)] uppercase"
             style={{
-              fontFamily: "'Montserrat', sans-serif",
+              fontFamily: "'Ubuntu', sans-serif",
               fontWeight: 700,
               fontSize: "40px",
               letterSpacing: "-0.8px",
@@ -34,8 +34,12 @@ export function ContactSection() {
               </p>
               <p className="text-[var(--site-text-muted)] leading-7">
                 {siteContent.contact.address[0]}
-                <br />
-                {siteContent.contact.address[1]}
+                {siteContent.contact.address[1] && (
+                  <>
+                    <br />
+                    {siteContent.contact.address[1]}
+                  </>
+                )}
               </p>
             </div>
 
@@ -50,8 +54,8 @@ export function ContactSection() {
               <p className="text-[var(--site-primary)] uppercase mb-1 text-sm tracking-[1.4px]">
                 Horaires
               </p>
-              {siteContent.contact.hours.map((item) => (
-                <p key={item} className="text-[var(--site-text-muted)] leading-7">
+              {siteContent.contact.hours.map((item: string, index: number) => (
+                <p key={index} className="text-[var(--site-text-muted)] leading-7">
                   {item}
                 </p>
               ))}
@@ -59,7 +63,7 @@ export function ContactSection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
-            {siteContent.contact.paymentCards.map((card) => (
+            {siteContent.contact.paymentCards.map((card: { title: string; body: string }) => (
               <article key={card.title} className="rounded-[28px] bg-[var(--site-white)] p-6 shadow-sm">
                 <h3 className="text-[var(--site-text)] font-semibold">{card.title}</h3>
                 <p className="mt-3 text-[var(--site-text-muted)] leading-7">{card.body}</p>

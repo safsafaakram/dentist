@@ -19,5 +19,5 @@ it("switches the primary booking entry points to French", () => {
   expect(
     screen.getByRole("link", { name: /prendre rendez-vous sur whatsapp/i }),
   ).toHaveAttribute("href", expect.stringContaining("wa.me/21321481200"));
-  expect(container.querySelector('[data-testid="hero-shell"] img')).toBeNull();
+  expect(container.querySelector('[data-testid="hero-shell"] img')).toBeInTheDocument();
 });

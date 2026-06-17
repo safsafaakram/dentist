@@ -100,46 +100,19 @@ export const siteContent = {
   ],
   services: [
     {
-      title: "Blanchiment",
-      description:
-        "Éclaircissement professionnel pour raviver la teinte naturelle du sourire en toute sécurité.",
-      icon: "sparkle",
-    },
-    {
-      title: "Prendre RDV",
-      description:
-        "Orientation rapide par téléphone ou WhatsApp pour réserver une consultation adaptée à votre besoin.",
-      icon: "calendar",
-    },
-    {
       title: "Détartrage",
-      description:
-        "Nettoyage professionnel pour retirer le tartre, assainir les gencives et prévenir l'inflammation.",
+      description: "",
       icon: "scaling",
     },
     {
-      title: "Orthodontie",
-      description:
-        "Solutions d'alignement dentaire pour corriger l'encombrement, l'occlusion et améliorer le confort.",
-      icon: "braces",
-    },
-    {
-      title: "Implants & prothèses",
-      description:
-        "Remplacement durable des dents absentes avec réhabilitation fonctionnelle et esthétique.",
+      title: "Implants",
+      description: "",
       icon: "implant",
     },
     {
-      title: "Carie dentaire",
-      description:
-        "Diagnostic et traitement conservateur des caries pour protéger la dent et soulager la douleur.",
-      icon: "cavity",
-    },
-    {
-      title: "Pansement",
-      description:
-        "Pansement dentaire temporaire ou protecteur pour sécuriser la dent avant le soin définitif.",
-      icon: "bandage",
+      title: "Blanchiment",
+      description: "",
+      icon: "sparkle",
     },
   ],
 };
