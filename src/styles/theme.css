@@ -39,6 +39,17 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --site-bg: #fdf6f0;
+  --site-surface: #f5ede5;
+  --site-surface-strong: #e8d5ce;
+  --site-primary: #b89486;
+  --site-primary-dark: #8a6b60;
+  --site-secondary: #6f8f7c;
+  --site-text: #2c2220;
+  --site-text-muted: #5c4a44;
+  --site-footer: #3d312c;
+  --site-white: #fffdfb;
 }
 
 .dark {
@@ -177,5 +188,16 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

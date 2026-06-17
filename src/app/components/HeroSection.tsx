@@ -1,58 +1,41 @@
-import imgHeroDeco from "figma:asset/a9a03805db38fa6ae1a336eb9b49484e00c57f89.png";
+import { siteContent } from "@/app/content/practiceContent";
 
 export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden bg-white flex items-center"
+      data-testid="hero-shell"
+      className="relative min-h-screen overflow-hidden bg-[var(--site-bg)] flex items-center"
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img
-          src={imgHeroDeco}
-          alt=""
-          className="absolute right-0 top-0 h-full w-auto object-cover object-right"
-          style={{ maxWidth: "65%" }}
-        />
-      </div>
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,_rgba(184,148,134,0.22),_transparent_42%),radial-gradient(circle_at_bottom_right,_rgba(111,143,124,0.14),_transparent_36%)]" />
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-12 pt-40 pb-24">
-        {/* Badge */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 pt-32 sm:pt-40 pb-16 sm:pb-24">
         <div className="inline-flex mb-8">
           <span
-            className="backdrop-blur-sm bg-white/30 border border-white/20 rounded-full px-5 py-2 shadow-sm"
+            className="bg-[var(--site-white)] border border-[var(--site-surface-strong)] rounded-full px-5 py-2 shadow-sm"
             style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}
           >
-            <span className="text-[#0b0b0b] text-xs tracking-[1.2px] uppercase">
-              ALGERIA'S PREMIER EYE CENTER
+            <span className="text-[var(--site-text)] text-xs tracking-[1.2px] uppercase">
+              {siteContent.hero.badge}
             </span>
           </span>
         </div>
 
-        {/* Main heading */}
         <h1
-          className="uppercase leading-none mb-6 max-w-3xl"
+          className="uppercase leading-none mb-6 max-w-3xl text-[var(--site-text)]"
           style={{
             fontFamily: "'Montserrat', sans-serif",
             fontWeight: 800,
-            fontSize: "clamp(52px, 7vw, 96px)",
-            background: "linear-gradient(to right, #006d32 0%, #161d16 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            letterSpacing: "-2.5px",
+            fontSize: "clamp(48px, 6.5vw, 88px)",
+            letterSpacing: "-2px",
             lineHeight: "0.9",
           }}
         >
-          YOUR EYES IS OUR
-          <br />
-          PRIORETY
+          {siteContent.hero.title}
         </h1>
 
-        {/* Subtitle */}
         <p
-          className="text-[#3d4a3d] max-w-xl mb-10"
+          className="text-[var(--site-text-muted)] max-w-xl mb-10"
           style={{
             fontFamily: "'Montserrat', sans-serif",
             fontWeight: 400,
@@ -60,24 +43,16 @@ export function HeroSection() {
             lineHeight: "1.625",
           }}
         >
-          Expert ophthalmological care, precision diagnostics, and advanced
-          surgical interventions in a modern clinical environment. See the world
-          with unprecedented clarity.
+          {siteContent.hero.description}
         </p>
 
-        {/* CTA Button */}
-        <button
-          className="bg-[#0b0b0b] text-white flex items-center gap-3 px-8 py-4 rounded-full shadow-lg hover:bg-[#006d32] transition-colors"
+        <a
+          href="#contact"
+          className="inline-flex bg-[var(--site-primary-dark)] text-white items-center gap-3 px-8 py-4 rounded-full shadow-lg hover:bg-[var(--site-secondary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--site-primary)]"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}
         >
-          <span className="text-sm tracking-widest uppercase">BOOK CONSULTATION</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"
-              fill="white"
-            />
-          </svg>
-        </button>
+          <span className="text-sm tracking-widest uppercase">{siteContent.hero.cta}</span>
+        </a>
       </div>
     </section>
   );
