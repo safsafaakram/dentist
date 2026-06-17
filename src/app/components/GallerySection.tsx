@@ -32,7 +32,7 @@ export function GallerySection() {
               <figure>
                 <div
                   className="h-56 w-full rounded-[24px]"
-                  style={{ backgroundColor: placeholderColors[index] }}
+                  style={{ backgroundColor: placeholderColors[index % placeholderColors.length] }}
                 />
                 <figcaption className="mt-2 text-sm uppercase tracking-wide text-[var(--site-primary)]">
                   Avant
@@ -42,7 +42,7 @@ export function GallerySection() {
               <figure>
                 <div
                   className="h-56 w-full rounded-[24px]"
-                  style={{ backgroundColor: placeholderColors[index] }}
+                  style={{ backgroundColor: placeholderColors[index % placeholderColors.length] }}
                 />
                 <figcaption className="mt-2 text-sm uppercase tracking-wide text-[var(--site-secondary)]">
                   Après
