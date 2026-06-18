@@ -1,6 +1,16 @@
 import { siteContent } from "@/app/content/practiceContent";
+import beforeBlanchiment from "@/assets/avant Blanchiment .png";
+import afterBlanchiment from "@/assets/aprés Blanchiment .png";
+import beforeDetartrage from "@/assets/avant Détartrage.png";
+import afterDetartrage from "@/assets/aprés Détartrage.png";
+import beforeOrthodontie from "@/assets/avant Orthodontie.png";
+import afterOrthodontie from "@/assets/aprés Orthodontie.png";
 
-const placeholderColors = ["#E8D5CE", "#D4C4B8", "#C9B8AB"];
+const beforeAfterImages: Record<string, { before: string; after: string }> = {
+  "Blanchiment dentaire": { before: beforeBlanchiment, after: afterBlanchiment },
+  "Détartrage": { before: beforeDetartrage, after: afterDetartrage },
+  "Orthodontie": { before: beforeOrthodontie, after: afterOrthodontie },
+};
 
 export function GallerySection() {
   return (
@@ -23,34 +33,39 @@ export function GallerySection() {
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-        {siteContent.gallery.map((item, index) => (
-          <article key={item.title} className="rounded-[32px] bg-[var(--site-white)] p-6 shadow-sm">
-            <h3 className="text-[var(--site-text)] text-xl font-semibold">{item.title}</h3>
-            <p className="mt-2 text-[var(--site-text-muted)] leading-7">{item.caption}</p>
+        {siteContent.gallery.map((item) => {
+          const images = beforeAfterImages[item.title];
+          return (
+            <article key={item.title} className="rounded-[32px] bg-[var(--site-white)] p-6 shadow-sm">
+              <h3 className="text-[var(--site-text)] text-xl font-semibold">{item.title}</h3>
+              <p className="mt-2 text-[var(--site-text-muted)] leading-7">{item.caption}</p>
 
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              <figure>
-                <div
-                  className="h-56 w-full rounded-[24px]"
-                  style={{ backgroundColor: placeholderColors[index % placeholderColors.length] }}
-                />
-                <figcaption className="mt-2 text-sm uppercase tracking-wide text-[var(--site-primary)]">
-                  Avant
-                </figcaption>
-              </figure>
+              <div className="grid grid-cols-2 gap-4 mt-6">
+                <figure>
+                  <img
+                    src={images.before}
+                    alt={item.beforeAlt}
+                    className="h-56 w-full rounded-[24px] object-cover"
+                  />
+                  <figcaption className="mt-2 text-sm uppercase tracking-wide text-[var(--site-primary)]">
+                    Avant
+                  </figcaption>
+                </figure>
 
-              <figure>
-                <div
-                  className="h-56 w-full rounded-[24px]"
-                  style={{ backgroundColor: placeholderColors[index % placeholderColors.length] }}
-                />
-                <figcaption className="mt-2 text-sm uppercase tracking-wide text-[var(--site-secondary)]">
-                  Après
-                </figcaption>
-              </figure>
-            </div>
-          </article>
-        ))}
+                <figure>
+                  <img
+                    src={images.after}
+                    alt={item.afterAlt}
+                    className="h-56 w-full rounded-[24px] object-cover"
+                  />
+                  <figcaption className="mt-2 text-sm uppercase tracking-wide text-[var(--site-secondary)]">
+                    Après
+                  </figcaption>
+                </figure>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
