@@ -1,5 +1,5 @@
 import { siteContent } from "@/app/content/practiceContent";
-import heroImg from "@/assets/hero image.jpg";
+import heroImg from "@/assets/hero-main.jpg";
 import heroBg from "@/assets/hero-bg.png";
 
 export function HeroSection() {
@@ -62,21 +62,15 @@ export function HeroSection() {
             </a>
           </div>
 
-          <div className="relative w-full aspect-[4/3]">
-            <div
-              className="absolute inset-4 rounded-[30px]"
-              style={{ backgroundColor: "var(--site-surface)" }}
+          <div
+            className="w-full aspect-[4/3] overflow-hidden"
+            style={{ borderRadius: "142px 52px 142px 88px" }}
+          >
+            <img
+              src={heroImg}
+              alt="Cabinet dentaire"
+              className="w-full h-full object-cover"
             />
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ borderRadius: "142px 52px 142px 88px" }}
-            >
-              <img
-                src={heroImg}
-                alt="Cabinet dentaire"
-                className="w-full h-full object-cover"
-              />
-            </div>
           </div>
         </div>
       </div>

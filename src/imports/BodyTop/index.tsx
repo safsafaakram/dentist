@@ -1,7 +1,7 @@
 import svgPaths from "./svg-61oxhy913u";
-import imgDrKarimYelles from "./a165835bfeb9784c2b610def7a5801a89d6bbdb2.png";
-import imgDiv from "./d294773d63b1f9824ca739cbaafe1ca2bbafd457.png";
-import imgDiv1 from "./2898627533355a86b957d1a1596f5f836915228c.png";
+import imgDrKarimYelles from "./doctor-karim-yelles.png";
+import imgDiv from "./wave-pattern-2.png";
+import imgDiv1 from "./wave-pattern-1.png";
 import imgImageHeroDeco from "./a9a03805db38fa6ae1a336eb9b49484e00c57f89.png";
 
 function Div() {

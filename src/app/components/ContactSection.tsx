@@ -1,5 +1,5 @@
-import imgDivWave from "figma:asset/d294773d63b1f9824ca739cbaafe1ca2bbafd457.png";
-import imgDivWave2 from "figma:asset/2898627533355a86b957d1a1596f5f836915228c.png";
+import imgDivWave from "figma:asset/wave-pattern-2.png";
+import imgDivWave2 from "figma:asset/wave-pattern-1.png";
 import { siteContent } from "@/app/content/practiceContent";
 
 export function ContactSection() {

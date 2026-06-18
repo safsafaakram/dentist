@@ -1,4 +1,4 @@
-import imgDoctor from "figma:asset/a165835bfeb9784c2b610def7a5801a89d6bbdb2.png";
+import imgDoctor from "figma:asset/doctor-karim-yelles.png";
 import { siteContent } from "@/app/content/practiceContent";
 
 export function DoctorSection() {
