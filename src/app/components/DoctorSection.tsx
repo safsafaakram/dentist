@@ -59,7 +59,9 @@ export function DoctorSection() {
 
           <div className="flex justify-center lg:justify-start">
             <a
-              href="#contact"
+              href={siteContent.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative px-8 py-4 rounded-full text-white flex items-center gap-3 hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--site-primary)] bg-[var(--site-secondary)]"
             >
               {siteContent.doctor.cta}

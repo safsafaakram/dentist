@@ -54,7 +54,9 @@ export function HeroSection() {
             </p>
 
             <a
-              href="#contact"
+              href={siteContent.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex bg-[var(--site-primary-dark)] text-white items-center gap-3 px-8 py-4 rounded-full shadow-lg hover:bg-[var(--site-secondary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--site-primary)]"
               style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}
             >

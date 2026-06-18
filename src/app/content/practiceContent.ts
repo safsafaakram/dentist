@@ -1,6 +1,6 @@
 export const siteContent = {
   whatsappUrl:
-    "https://wa.me/21321481200?text=Bonjour%20Cabinet%20Dentaire%20Sidi%20Yahia%2C%20je%20souhaite%20prendre%20rendez-vous.",
+    "https://wa.me/213551823976?text=Bonjour%20Cabinet%20Dentaire%20Sidi%20Yahia%2C%20je%20souhaite%20prendre%20rendez-vous.",
   nav: [
     { href: "#services", label: "SOINS" },
     { href: "#testimonials", label: "AVIS" },
@@ -61,7 +61,7 @@ export const siteContent = {
     phone: "+213 21 48 12 00",
     hours: ["Dim - Jeu : 08:30 - 17:30", "Sam : 09:00 - 13:00"],
     mapEmbedUrl:
-      "https://www.google.com/maps?q=42+Rue+Didouche+Mourad,+Sidi+Yahia,+Alger+16000&z=15&output=embed",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.5!2d3.0445055!3d36.7375946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fad3c52cd99e9%3A0xabe4f6a6d9f3e26b!2sCabinet+Dentaire+Sidi+Yahia!5e0!3m2!1sfr!2sdz",
     paymentCards: [
       {
         title: "CNAS / CASNOS acceptés",
