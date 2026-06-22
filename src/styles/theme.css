@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
+  --background: #FFF9F6;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
@@ -40,7 +40,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  --site-bg: #ffffff;
+  --site-bg: #FFF9F6;
   --site-surface: #f5ede5;
   --site-surface-strong: #e8d5ce;
   --site-primary: #A67D72;
