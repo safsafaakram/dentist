@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 
 interface BeforeAfterSliderProps {
   beforeSrc: string;
@@ -14,64 +14,117 @@ export function BeforeAfterSlider({
   afterAlt = "Après",
 }: BeforeAfterSliderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const afterClipRef = useRef<HTMLDivElement>(null);
+  const sliderLineRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
+  const avantLabelRef = useRef<HTMLDivElement>(null);
+  const apresLabelRef = useRef<HTMLDivElement>(null);
+  const hintRef = useRef<HTMLDivElement>(null);
+
+  const rectRef = useRef<DOMRect | null>(null);
+  const isDraggingRef = useRef(false);
+  const posRef = useRef(50);
+  const rafRef = useRef(0);
+
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
 
-  const updatePosition = useCallback((clientX: number) => {
-    const container = containerRef.current;
-    if (!container) return;
+  const applyPosition = useCallback((pct: number) => {
+    const afterClip = afterClipRef.current;
+    const line = sliderLineRef.current;
+    const handle = handleRef.current;
+    const avant = avantLabelRef.current;
+    const apres = apresLabelRef.current;
+    const hint = hintRef.current;
 
-    const rect = container.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-    setSliderPosition(percentage);
+    if (afterClip) afterClip.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    if (line) line.style.left = `${pct}%`;
+    if (handle) handle.style.left = `${pct}%`;
+    if (avant) avant.style.opacity = pct < 20 ? "0" : "1";
+    if (apres) apres.style.opacity = pct > 80 ? "0" : "1";
+    if (hint) hint.style.opacity = isDraggingRef.current ? "0" : "1";
   }, []);
 
-  const handlePointerDown = useCallback(
+  const updatePos = useCallback(
+    (clientX: number) => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      let rect = rectRef.current;
+      if (!rect) {
+        rect = container.getBoundingClientRect();
+        rectRef.current = rect;
+      }
+
+      const x = clientX - rect.left;
+      const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+      posRef.current = pct;
+      applyPosition(pct);
+    },
+    [applyPosition]
+  );
+
+  const onPointerDown = useCallback(
     (e: React.PointerEvent) => {
       e.preventDefault();
+      const container = containerRef.current;
+      if (!container) return;
+
+      container.setPointerCapture(e.pointerId);
+      container.focus({ preventScroll: true });
+
+      isDraggingRef.current = true;
       setIsDragging(true);
-      updatePosition(e.clientX);
-      (e.target as HTMLElement).setPointerCapture(e.pointerId);
+      rectRef.current = null;
+      updatePos(e.clientX);
     },
-    [updatePosition]
+    [updatePos]
   );
 
-  const handlePointerMove = useCallback(
+  const onPointerMove = useCallback(
     (e: React.PointerEvent) => {
-      if (!isDragging) return;
-      updatePosition(e.clientX);
+      if (!isDraggingRef.current) return;
+
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        updatePos(e.clientX);
+      });
     },
-    [isDragging, updatePosition]
+    [updatePos]
   );
 
-  const handlePointerUp = useCallback(() => {
+  const onPointerUp = useCallback(() => {
+    isDraggingRef.current = false;
     setIsDragging(false);
-  }, []);
+    rectRef.current = null;
+    setSliderPosition(posRef.current);
 
-  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-    const step = 2;
-    if (e.key === "ArrowLeft") {
-      setSliderPosition((prev) => Math.max(0, prev - step));
-    } else if (e.key === "ArrowRight") {
-      setSliderPosition((prev) => Math.min(100, prev + step));
+    cancelAnimationFrame(rafRef.current);
+
+    if (hintRef.current) {
+      hintRef.current.style.opacity = "1";
     }
   }, []);
 
-  useEffect(() => {
-    if (isDragging) {
-      document.body.style.userSelect = "none";
-      return () => {
-        document.body.style.userSelect = "";
-      };
-    }
-  }, [isDragging]);
+  const onKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      const step = 2;
+      let next = posRef.current;
+      if (e.key === "ArrowLeft") next = Math.max(0, next - step);
+      else if (e.key === "ArrowRight") next = Math.min(100, next + step);
+      else return;
+
+      posRef.current = next;
+      applyPosition(next);
+      setSliderPosition(next);
+    },
+    [applyPosition]
+  );
 
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden rounded-[20px] cursor-ew-resize select-none focus:outline-none"
+      className="relative w-full overflow-hidden rounded-[20px] cursor-ew-resize select-none touch-none focus:outline-none"
       style={{ aspectRatio: "4 / 3" }}
       tabIndex={0}
       role="slider"
@@ -79,15 +132,11 @@ export function BeforeAfterSlider({
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={Math.round(sliderPosition)}
-      onKeyDown={handleKeyDown}
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-      onPointerLeave={() => {
-        setIsDragging(false);
-        setIsHovering(false);
-      }}
-      onPointerEnter={() => setIsHovering(true)}
+      onKeyDown={onKeyDown}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
     >
       {/* Bottom layer: Before image (full width) */}
       <img
@@ -97,10 +146,11 @@ export function BeforeAfterSlider({
         draggable={false}
       />
 
-      {/* Top layer: After image (clipped) */}
+      {/* Top layer: After image (clipped via GPU-composited clip-path) */}
       <div
-        className="absolute inset-0 overflow-hidden"
-        style={{ width: `${sliderPosition}%` }}
+        ref={afterClipRef}
+        className="absolute inset-0"
+        style={{ clipPath: "inset(0 50% 0 0)", willChange: "clip-path" }}
       >
         <img
           src={afterSrc}
@@ -112,10 +162,12 @@ export function BeforeAfterSlider({
 
       {/* Slider line */}
       <div
+        ref={sliderLineRef}
         className="absolute top-0 bottom-0 w-[2px] pointer-events-none z-10"
         style={{
-          left: `${sliderPosition}%`,
+          left: "50%",
           transform: "translateX(-50%)",
+          willChange: "left",
           background:
             "linear-gradient(to bottom, transparent, var(--site-white) 15%, var(--site-white) 85%, transparent)",
         }}
@@ -123,11 +175,12 @@ export function BeforeAfterSlider({
 
       {/* Slider handle */}
       <div
+        ref={handleRef}
         className="absolute top-1/2 pointer-events-none z-20"
         style={{
-          left: `${sliderPosition}%`,
+          left: "50%",
           transform: "translate(-50%, -50%)",
-          transition: isDragging ? "none" : "left 0.1s ease-out",
+          willChange: "left",
         }}
       >
         {/* Outer glow ring */}
@@ -137,7 +190,7 @@ export function BeforeAfterSlider({
             background:
               "radial-gradient(circle, rgba(184, 148, 134, 0.3) 0%, transparent 70%)",
             transition: "opacity 0.3s ease",
-            opacity: isHovering || isDragging ? 1 : 0,
+            opacity: isDragging ? 1 : 0,
           }}
         />
 
@@ -146,12 +199,12 @@ export function BeforeAfterSlider({
           className="relative w-11 h-11 rounded-full flex items-center justify-center"
           style={{
             background: "var(--site-white)",
-            boxShadow: "0 4px 20px rgba(44, 34, 32, 0.25), 0 0 0 2px rgba(184, 148, 134, 0.3)",
+            boxShadow:
+              "0 4px 20px rgba(44, 34, 32, 0.25), 0 0 0 2px rgba(184, 148, 134, 0.3)",
             transition: "transform 0.2s ease, box-shadow 0.2s ease",
             transform: isDragging ? "scale(1.15)" : "scale(1)",
           }}
         >
-          {/* Arrow icons */}
           <svg
             width="20"
             height="20"
@@ -159,7 +212,6 @@ export function BeforeAfterSlider({
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* Left arrow */}
             <path
               d="M11 5L7 10L11 15"
               stroke="var(--site-primary)"
@@ -167,7 +219,6 @@ export function BeforeAfterSlider({
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            {/* Divider line */}
             <line
               x1="10"
               y1="5"
@@ -177,7 +228,6 @@ export function BeforeAfterSlider({
               strokeWidth="1"
               opacity="0.4"
             />
-            {/* Right arrow */}
             <path
               d="M9 5L13 10L9 15"
               stroke="var(--site-secondary)"
@@ -191,11 +241,9 @@ export function BeforeAfterSlider({
 
       {/* Labels */}
       <div
+        ref={avantLabelRef}
         className="absolute top-4 left-4 z-10 pointer-events-none"
-        style={{
-          opacity: sliderPosition < 20 ? 0 : 1,
-          transition: "opacity 0.3s ease",
-        }}
+        style={{ transition: "opacity 0.3s ease" }}
       >
         <span
           className="px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase"
@@ -211,11 +259,9 @@ export function BeforeAfterSlider({
       </div>
 
       <div
+        ref={apresLabelRef}
         className="absolute top-4 right-4 z-10 pointer-events-none"
-        style={{
-          opacity: sliderPosition > 80 ? 0 : 1,
-          transition: "opacity 0.3s ease",
-        }}
+        style={{ transition: "opacity 0.3s ease" }}
       >
         <span
           className="px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase"
@@ -232,15 +278,15 @@ export function BeforeAfterSlider({
 
       {/* Initial instruction hint */}
       <div
-        className="absolute bottom-4 left-1/2 z-10 pointer-events-none"
+        ref={hintRef}
+        className="absolute bottom-4 left-1/2 z-10 pointer-events-none whitespace-nowrap"
         style={{
           transform: "translateX(-50%)",
-          opacity: isDragging ? 0 : 1,
           transition: "opacity 0.4s ease",
         }}
       >
         <span
-          className="px-3 py-1.5 rounded-full text-[10px] font-medium tracking-wide uppercase whitespace-nowrap"
+          className="px-3 py-1.5 rounded-full text-[10px] font-medium tracking-wide uppercase"
           style={{
             background: "rgba(44, 34, 32, 0.5)",
             backdropFilter: "blur(8px)",
