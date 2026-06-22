@@ -1,4 +1,4 @@
-import imgDoctor from "figma:asset/doctor-karim-yelles.png";
+import imgDoctor from "@/assets/doctor image.webp";
 import { siteContent } from "@/app/content/practiceContent";
 
 export function DoctorSection() {
@@ -11,13 +11,14 @@ export function DoctorSection() {
             style={{ borderRadius: "213px 78px 218px 136px" }}
           />
           <div
-            className="absolute overflow-hidden"
+            className="absolute overflow-hidden bg-white"
             style={{
               top: "24px",
               left: "24px",
               right: "48px",
               bottom: "0",
               borderRadius: "213px 78px 218px 136px",
+              border: "1px solid var(--site-surface-strong)",
             }}
           >
             <img

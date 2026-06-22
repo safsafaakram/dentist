@@ -17,16 +17,7 @@ export function HeroSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 pt-32 sm:pt-40 pb-16 sm:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex mb-8">
-              <span
-                className="bg-[var(--site-white)] border border-[var(--site-surface-strong)] rounded-full px-5 py-2 shadow-sm"
-                style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}
-              >
-                <span className="text-[var(--site-text)] text-xs tracking-[1.2px] uppercase">
-                  {siteContent.hero.badge}
-                </span>
-              </span>
-            </div>
+           
 
             <h1
               className="uppercase leading-none mb-6 text-[var(--site-text)]"
