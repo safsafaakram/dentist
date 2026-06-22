@@ -40,12 +40,12 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  --site-bg: #fdf6f0;
+  --site-bg: #ffffff;
   --site-surface: #f5ede5;
   --site-surface-strong: #e8d5ce;
-  --site-primary: #b89486;
+  --site-primary: #A67D72;
   --site-primary-dark: #8a6b60;
-  --site-secondary: #6f8f7c;
+  --site-secondary: #6B8A6B;
   --site-text: #2c2220;
   --site-text-muted: #5c4a44;
   --site-footer: #3d312c;

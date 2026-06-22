@@ -41,9 +41,7 @@ export function DoctorSection() {
             {siteContent.doctor.name}
           </h2>
 
-          <span className="inline-flex self-center lg:self-start rounded-full bg-[var(--site-surface)] px-4 py-2 text-sm font-semibold text-[var(--site-secondary)]">
-            {siteContent.doctor.role}
-          </span>
+          
 
           <p className="text-[var(--site-text-muted)] text-center lg:text-left leading-7">
             {siteContent.doctor.bio}

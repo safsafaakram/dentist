@@ -21,23 +21,21 @@ export const siteContent = {
   },
   testimonials: [
     {
-      name: "Nadia B.",
+      name: "alya salma nour.",
       rating: 5,
       quote:
-        "Cabinet très rassurant, équipe douce et organisée. Mon blanchiment s'est très bien passé.",
+        "Cabinet très propre et personnel médical très professionnel.J’ai eu une réparation sur une dent qui ne paraît plus comme une dent soignée, bien qu’elle soit très visible. Avant, j’évitais même de sourire ou de trop parler alors que j’ai un métier qui m’expose à être souvent en contact avec les gens, en dehors du pays. Merci beaucoup Dr. Hatrat, que je recommande personnellement.",
     },
     {
-      name: "Yacine K.",
+      name: "raiss.",
       rating: 5,
       quote:
-        "J'ai été pris en charge rapidement pour une douleur dentaire. Explications claires et soin précis.",
-    },
+        "Tous mes remerciements et appréciations aux membres de la clinique dentaire sidi yahia en général et au Dr Khellaf en particulier, meilleur dentiste que j'ai jamais vu de ma vie, bon traitement, expérience, professionnalisme, gentillesse, vraiment bravo docteur je vous souhaite une bonne continuation et beaucoup de succès inshaallah.",},
     {
       name: "Samira M.",
       rating: 5,
       quote:
-        "Le suivi orthodontique est sérieux et l'accueil met vraiment en confiance dès la première visite.",
-    },
+        "Bonjour docteur TAHRAT Khellaf, vraiment très satisfaite du résultat , franchement aucune douleur & très satisfaite de votre professionnalisme. Bonne courage incha allah ✨.   Merci  beaucoup pour votre gentillesse et votre patience. Je vous recommande vivement à tous ceux qui veulent un bon dentiste. bon service pour le prix , bon courage !",},
   ],
   doctor: {
     name: "Dr. TAHRAT Khellaf",
@@ -62,16 +60,7 @@ export const siteContent = {
     hours: ["Dim - Jeu : 08:30 - 17:30", "Sam : 09:00 - 13:00"],
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.5!2d3.0445055!3d36.7375946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fad3c52cd99e9%3A0xabe4f6a6d9f3e26b!2sCabinet+Dentaire+Sidi+Yahia!5e0!3m2!1sfr!2sdz",
-    paymentCards: [
-      {
-        title: "CNAS / CASNOS acceptés",
-        body: "Prise en charge selon votre dossier. Apportez votre carte et vos justificatifs le jour du rendez-vous.",
-      },
-      {
-        title: "Paiement & orientation",
-        body: "Les modalités de règlement et de remboursement sont précisées lors de la prise de rendez-vous.",
-      },
-    ],
+
   },
   gallery: [
     {

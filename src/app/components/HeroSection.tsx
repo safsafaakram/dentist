@@ -7,10 +7,10 @@ export function HeroSection() {
     <section
       id="hero"
       data-testid="hero-shell"
-      className="relative min-h-screen overflow-hidden flex items-center"
+      className="relative h-[100dvh] lg:min-h-screen overflow-hidden flex items-center"
     >
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-bottom bg-no-repeat"
+        className="absolute inset-0 w-full h-[115%] lg:h-full bg-cover bg-center lg:bg-bottom bg-no-repeat z-0 origin-top"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
 
@@ -65,7 +65,7 @@ export function HeroSection() {
           </div>
 
           <div
-            className="w-full aspect-[4/3] overflow-hidden"
+            className="hidden lg:block w-full aspect-[4/3] overflow-hidden"
             style={{ borderRadius: "142px 52px 142px 88px" }}
           >
             <img
