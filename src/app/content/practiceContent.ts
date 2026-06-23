@@ -11,7 +11,7 @@ export const siteContent = {
     badge: "Cabinet dentaire à Alger",
     title: "VOTRE SOURIRE, NOTRE EXPERTISE",
     description:
-      "Soins dentaires complets dans un cadre chaleureux et moderne. Du détartrage aux traitements restaurateurs et esthétiques, nous privilégions la précision, l'écoute et le confort.",
+      "Des soins dentaires complets, avec attention, précision et confort à chaque visite.",
     cta: "Prendre rendez-vous",
   },
   footer: {

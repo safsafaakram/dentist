@@ -10,7 +10,7 @@ export function HeroSection() {
       className="relative h-[100dvh] lg:min-h-screen overflow-hidden flex items-center"
     >
       <div
-        className="absolute inset-0 w-full h-[115%] lg:h-full bg-cover bg-center lg:bg-bottom bg-no-repeat z-0 origin-top"
+        className="absolute inset-0 w-full h-[115%] lg:h-full bg-cover bg-no-repeat z-0 origin-top bg-[center_-280px] lg:bg-bottom"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
 
