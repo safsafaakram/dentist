@@ -17,11 +17,11 @@ export function ServicesSection() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
+      <div className="flex flex-wrap justify-center gap-8 mt-8">
         {siteContent.services.map((service, index) => (
           <article
             key={service.title}
-            className="bg-[var(--site-surface)] p-8 text-center flex flex-col items-center"
+            className="bg-[var(--site-surface)] p-8 text-center flex flex-col items-center w-full md:w-[calc(50%-1rem)] xl:w-[calc(33.333%-1.1rem)]"
             style={{
               borderRadius: "142px 52px 142px 88px",
               boxShadow:

@@ -1,6 +1,6 @@
 export const siteContent = {
   whatsappUrl:
-    "https://wa.me/213551823976?text=Bonjour%20Cabinet%20Dentaire%20Sidi%20Yahia%2C%20je%20souhaite%20prendre%20rendez-vous.",
+    "https://wa.me/556620229?text=Bonjour%20Cabinet%20Dentaire%20Sidi%20Yahia%2C%20je%20souhaite%20prendre%20rendez-vous.",
   nav: [
     { href: "#services", label: "SOINS" },
     { href: "#testimonials", label: "AVIS" },
@@ -42,12 +42,7 @@ export const siteContent = {
     role: "Chirurgien-dentiste",
     bio:
       "Le Dr. TAHRAT Khellaf accompagne ses patients avec une approche calme, pédagogique et précise, en privilégiant des soins confortables et durables.",
-    credentials: [
-      "Implantologie",
-      "Orthodontie",
-      "Parodontologie",
-      "Prothèse Dentaire",
-    ],
+    credentials: [],
     cta: "Prendre rendez-vous",
   },
   contact: {
@@ -56,7 +51,7 @@ export const siteContent = {
       "Prenez rendez-vous ou posez vos questions. Le cabinet vous répond par téléphone ou WhatsApp.",
     address: ["42 Rue Didouche Mourad", "Sidi Yahia, Alger 16000"],
     phoneLabel: "Prendre rendez-vous",
-    phone: "+213 21 48 12 00",
+    phone: "+213 05 56 62 02 29",
     hours: ["Dim - Jeu : 08:30 - 17:30", "Sam : 09:00 - 13:00"],
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.5!2d3.0445055!3d36.7375946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fad3c52cd99e9%3A0xabe4f6a6d9f3e26b!2sCabinet+Dentaire+Sidi+Yahia!5e0!3m2!1sfr!2sdz",
@@ -109,6 +104,11 @@ export const siteContent = {
       title: "Blanchiment",
       description: "",
       icon: "sparkle",
+    },
+    {
+      title: "Prothèse Dentaire",
+      description: "",
+      icon: "prosthesis",
     },
   ],
 };
